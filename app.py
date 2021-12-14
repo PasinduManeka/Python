@@ -153,13 +153,26 @@ import random
 
 print("NFS Hot Pursuit")
 command = ""
+started = False
 while command != "quit":
     command = input("> ").lower()
     if command == "help":
         print("Start - to start the car\nStop - to stop the car\nQuit - to exit ")
     elif command == "start":
-        print("Car is started... Ready to go!")
+        if started:
+            print("Car is already started... Let's go !!")
+        else:
+            print("Car is started... Let's go !!")
+            started = True
     elif command == "stop":
-        print("Car is stopped!")
-print("See you later !!")
+        if started:
+            print("Car is stopped..")
+            started=False
+        else:
+            print("Car is already stopped")
+    elif command == "quit":
+        print("See you again !!")
+        break
+    else:
+        print("Please follow up the instructions.\n\nTo follow the instructions, Enter the \'Help\'")
 
